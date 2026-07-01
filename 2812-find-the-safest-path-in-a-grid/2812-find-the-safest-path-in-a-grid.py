@@ -1,40 +1,45 @@
 class Solution:
-    dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]]
-
-    def maximumSafenessFactor(self, A: List[List[int]]) -> int:
-        if A[0][0] or A[-1][-1]: return 0
-        n, q = len(A), deque()
-
+    def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        thieves = deque([])
+        mDist = [ [-1]*n for i in range(n) ]
         for i in range(n):
             for j in range(n):
-                if A[i][j]:
-                    q.append((i, j))
+                if (grid[i][j] == 1):
+                    thieves.append( (i,j) )
+                    mDist[i][j] = 0
+        if (mDist[0][0] == 0 or mDist[-1][-1] == 0):
+            return 0
 
-        while q:
-            i, j = q.popleft()
-            v = A[i][j]
+        dirs = [(1,0),(-1,0),(0,1),(0,-1)]
+        while (thieves):
+            r, c = thieves.popleft()
+            for rOS, cOS in dirs:
+                adjR, adjC = rOS+r, cOS+c
+                if (0 <= adjR < n and 0 <= adjC < n and mDist[adjR][adjC] == -1):
+                    mDist[adjR][adjC] = mDist[r][c] + 1
+                    thieves.append((adjR, adjC))
+        
+        travel = deque([(mDist[0][0], 0, 0)])
+        visited = [ [False]*n for i in range(n) ]
+        visited[0][0] = True
+        ans = min(mDist[0][0], mDist[-1][-1])
+        
+        while (travel):
+            safety, r, c = travel.popleft()
+            ans = min(safety, ans)
+            if (r == n-1 and c == n-1):
+                return ans
 
-            for dx, dy in self.dirs:
-                x, y = i + dx, j + dy
+            for rOS, cOS in dirs:
+                adjR, adjC = rOS+r, cOS+c
+                if (0 <= adjR < n and 0 <= adjC < n and not visited[adjR][adjC]):
+                    visited[adjR][adjC] = True
+                    nextSafety = min(mDist[adjR][adjC], safety)
+                    if (nextSafety < ans):
+                        travel.append( (nextSafety, adjR, adjC) )
+                    else:
+                        travel.appendleft( (nextSafety, adjR, adjC) )
+            # print(travel)
 
-                if min(x, y) >= 0 and max(x, y) < n and not A[x][y]:
-                    A[x][y] = v + 1
-                    q.append((x, y))
-
-        pq = [(-A[0][0], 0, 0)]
-
-        while pq:
-            sf, i, j = heapq.heappop(pq)
-            sf = -sf
-
-            if i == n - 1 and j == n - 1:
-                return sf - 1
-
-            for dx, dy in self.dirs:
-                x, y = i + dx, j + dy
-
-                if min(x, y) >= 0 and max(x, y) < n and A[x][y] > 0:
-                    heapq.heappush(pq, (-min(sf, A[x][y]), x, y))
-                    A[x][y] *= -1
-
-        return A[n - 1][n - 1] - 1
+        return -1
