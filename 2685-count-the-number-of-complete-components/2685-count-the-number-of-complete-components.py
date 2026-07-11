@@ -1,43 +1,34 @@
-class UnionFind:
-    def __init__(self, N):
-        self.root = list(range(N))
-        self.Size = [1]*N
-
-    def Find(self, x):
-        if self.root[x] != x:
-            self.root[x] = self.Find(self.root[x]) 
-        return self.root[x]
-
-    def Union(self, x, y):
-        x = self.Find(x)
-        y = self.Find(y)
-        if x==y: return False
-
-        if self.Size[x] > self.Size[y]:
-            self.Size[x] += self.Size[y]
-            self.root[y]=x
-        else:
-            self.Size[y] += self.Size[x]
-            self.root[x]=y
-        return True
 class Solution:
     def countCompleteComponents(self, n: int, edges: List[List[int]]) -> int:
-        m=len(edges)
-        if m==n*(n-1)//2: 
-            return 1
+        adj = [[] for _ in range(n)]
+        
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
 
-        G=UnionFind(n)
-        eN=[0]*n
-        for v, w in edges:
-            a=eN[G.Find(v)]
-            b=eN[G.Find(w)]
-            if G.Union(v, w):
-                eN[G.Find(v)]=a+b+1
-            else:
-                eN[G.Find(v)]=a+1
-        ans=0
-        for i, v in enumerate(G.Size):
-            if G.Find(i)==i and eN[i]==v*(v-1)//2:
-                ans+=1
-        return ans
-         
+        visit = [False]*n
+
+        def bfs(node):
+            visit[node] = True
+            que = deque([node])
+            node_ct = 0
+            edge_ct = 0
+            while que:
+                curr = que.popleft()
+                node_ct += 1
+                edge_ct += len(adj[curr])
+
+                for nei in adj[curr]:   
+                    if visit[nei]:
+                        continue
+                    visit[nei] = True
+                    que.append(nei)
+            edge_ct //= 2
+            return edge_ct == (node_ct)*(node_ct-1) // 2
+        
+        res = 0
+        for i in range(n):
+            if not visit[i]:
+                res += bfs(i)
+
+        return res
