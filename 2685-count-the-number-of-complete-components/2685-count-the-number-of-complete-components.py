@@ -5,7 +5,7 @@ class UnionFind:
 
     def Find(self, x):
         if self.root[x] != x:
-            self.root[x] = self.Find(self.root[x])  # path compression
+            self.root[x] = self.Find(self.root[x]) 
         return self.root[x]
 
     def Union(self, x, y):
