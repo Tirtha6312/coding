@@ -103,6 +103,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0002-add-two-numbers](https://github.com/Tirtha6312/coding/tree/master/0002-add-two-numbers) |
 | [0007-reverse-integer](https://github.com/Tirtha6312/coding/tree/master/0007-reverse-integer) |
 | [0009-palindrome-number](https://github.com/Tirtha6312/coding/tree/master/0009-palindrome-number) |
+| [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
 | [3312-sorted-gcd-pair-queries](https://github.com/Tirtha6312/coding/tree/master/3312-sorted-gcd-pair-queries) |
 | [3336-find-the-number-of-subsequences-with-equal-gcd](https://github.com/Tirtha6312/coding/tree/master/3336-find-the-number-of-subsequences-with-equal-gcd) |
 | [3658-gcd-of-odd-and-even-sums](https://github.com/Tirtha6312/coding/tree/master/3658-gcd-of-odd-and-even-sums) |
@@ -113,6 +114,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/Tirtha6312/coding/tree/master/0014-longest-common-prefix) |
+| [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
 | [3756-concatenate-non-zero-digits-and-multiply-by-sum-ii](https://github.com/Tirtha6312/coding/tree/master/3756-concatenate-non-zero-digits-and-multiply-by-sum-ii) |
 ## Prefix Sum
 |  |
@@ -167,4 +169,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [3312-sorted-gcd-pair-queries](https://github.com/Tirtha6312/coding/tree/master/3312-sorted-gcd-pair-queries) |
+## Sliding Window
+|  |
+| ------- |
+| [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
 <!---LeetCode Topics End-->
