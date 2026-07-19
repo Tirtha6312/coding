@@ -116,6 +116,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/Tirtha6312/coding/tree/master/0014-longest-common-prefix) |
+| [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 | [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
 | [3756-concatenate-non-zero-digits-and-multiply-by-sum-ii](https://github.com/Tirtha6312/coding/tree/master/3756-concatenate-non-zero-digits-and-multiply-by-sum-ii) |
 ## Prefix Sum
@@ -135,6 +136,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Greedy
 |  |
 | ------- |
+| [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 | [3534-path-existence-queries-in-a-graph-ii](https://github.com/Tirtha6312/coding/tree/master/3534-path-existence-queries-in-a-graph-ii) |
 ## Bit Manipulation
 |  |
@@ -176,4 +178,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
+## Stack
+|  |
+| ------- |
+| [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
+## Monotonic Stack
+|  |
+| ------- |
+| [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 <!---LeetCode Topics End-->
