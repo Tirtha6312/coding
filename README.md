@@ -121,6 +121,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/Tirtha6312/coding/tree/master/0014-longest-common-prefix) |
+| [0020-valid-parentheses](https://github.com/Tirtha6312/coding/tree/master/0020-valid-parentheses) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 | [2269-find-the-k-beauty-of-a-number](https://github.com/Tirtha6312/coding/tree/master/2269-find-the-k-beauty-of-a-number) |
 | [3499-maximize-active-section-with-trade-i](https://github.com/Tirtha6312/coding/tree/master/3499-maximize-active-section-with-trade-i) |
@@ -190,6 +191,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Stack
 |  |
 | ------- |
+| [0020-valid-parentheses](https://github.com/Tirtha6312/coding/tree/master/0020-valid-parentheses) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/Tirtha6312/coding/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 ## Monotonic Stack
 |  |
