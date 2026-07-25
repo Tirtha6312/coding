@@ -12,6 +12,7 @@ class Solution:
         for i in range(len(digits)):
             for j in range(i + 1, len(digits)):
 
+                # Try every pair.
                 ans = max(ans, digits[i] * digits[j])
 
         return ans
