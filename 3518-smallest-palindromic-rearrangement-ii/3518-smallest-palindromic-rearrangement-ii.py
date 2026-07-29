@@ -1,48 +1,44 @@
 class Solution:
-    def smallestPalindrome(self, s: str, k: int) -> str:
-        from collections import Counter
-        import math
-        
-        freq = Counter(s)
-        half = {}
-        mid = ""
-        m = 0
-        
-        for char in "abcdefghijklmnopqrstuvwxyz":
-            if freq[char] > 0:
-                if freq[char] % 2 != 0:
-                    mid += char
-                half[char] = freq[char] // 2
-                m += half[char]
-        
-        def get_ways(f, target_k):
-            ways = 1
-            curr_len = 0
-            for char in "abcdefghijklmnopqrstuvwxyz":
-                count = f.get(char, 0)
-                if count > 0:
-                    curr_len += count
-                    ways *= math.comb(curr_len, count)
-                    if ways > target_k:
-                        return target_k + 1
-            return ways
-            
-        if get_ways(half, k) < k:
-            return ""
-            
-        first_half = []
-        for _ in range(m):
-            for char in "abcdefghijklmnopqrstuvwxyz":
-                if half.get(char, 0) > 0:
-                    half[char] -= 1
-                    ways = get_ways(half, k)
-                    
-                    if ways >= k:
-                        first_half.append(char)
+    def smallestPalindrome(self, S: str, K: int) -> str:
+        import collections, math
+        n = len(S)
+        ans = [""] * n
+        count = collections.Counter(S[: n // 2])
+        if n & 1:
+            ans[n // 2] = S[n // 2]
+        tot = 0
+        ways = 1
+        i = 0
+        for c in sorted(count, reverse=True):
+            tot += count[c]
+            ways *= math.comb(tot, count[c])
+            if ways > K:
+                for c2 in sorted(count):
+                    if c2 >= c:
                         break
+                    for loops in range(count[c2]):
+                        ans[i] = ans[~i] = c2
+                        i += 1
+                    count[c2] = 0
+        ways = 1
+        tot = sum(count.values())
+        for k in sorted(count):
+            ways *= math.comb(tot, count[k])
+            tot -= count[k]
+        if ways < K:
+            return ""
+        tot = sum(count.values())
+        while tot:
+            for c in sorted(count):
+                if count[c]:
+                    ways2 = ways * count[c] // tot
+                    if ways2 < K:
+                        K -= ways2
                     else:
-                        k -= ways
-                        half[char] += 1
-                        
-        first_str = "".join(first_half)
-        return first_str + mid + first_str[::-1]
+                        ans[i] = ans[~i] = c
+                        i += 1
+                        ways = ways2
+                        count[c] -= 1
+                        tot -= 1
+                        break
+        return "".join(ans)
