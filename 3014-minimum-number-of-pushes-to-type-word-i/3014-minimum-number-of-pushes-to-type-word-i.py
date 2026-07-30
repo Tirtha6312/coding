@@ -1,10 +1,23 @@
 class Solution:
     def minimumPushes(self, word: str) -> int:
+        freq = Counter(word)
 
-        pushes = 0
+        max_heap = []
 
-        for i in range(len(word)):
+        for f in freq.values():
+            heapq.heappush(max_heap, -f) 
 
-            pushes += (i // 8) + 1
+        ans = 0
+        index = 0
 
-        return pushes
+        while max_heap:
+
+            frequency = -heapq.heappop(max_heap)
+
+            presses = index // 8 + 1
+
+            ans += frequency * presses
+
+            index += 1
+
+        return ans
