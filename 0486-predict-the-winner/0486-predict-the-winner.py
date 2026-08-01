@@ -9,4 +9,3 @@ class Solution:
             for j in range(i + 1, n):
                 dp[j] = max(nums[i] - dp[j], nums[j] - dp[j - 1])
         return dp[-1] >= 0
-        
