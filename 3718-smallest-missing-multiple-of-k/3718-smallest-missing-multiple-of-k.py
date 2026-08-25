@@ -6,3 +6,4 @@ class Solution:
         while x in s:
             x += k
         return x
+        
