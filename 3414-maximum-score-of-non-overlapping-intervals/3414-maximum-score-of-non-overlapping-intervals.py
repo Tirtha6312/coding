@@ -7,12 +7,14 @@ class Solution:
         dp = [[(0, []) for _ in range(5)] for _ in range(len(intervals) + 1)]
 
         for i, (end, start, weight, originalIndex) in enumerate(sortedIntervals):
+
             k = bisect_left(sortedIntervals, (start,), hi=i)
             
             for j in range(1, 5):
                 prevWeight, prevIndices = dp[k][j - 1]
                 
                 skip = dp[i][j]
+
                 takeWeight = prevWeight - weight
                 takeIndices = sorted(prevIndices + [originalIndex])
                 take = (takeWeight, takeIndices)
